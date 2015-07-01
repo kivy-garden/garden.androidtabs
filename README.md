@@ -1,7 +1,9 @@
 #AndroidTabs
 Kivy widget that try to reproduce Android tabs behaviour.
+#
+Video preview @ https://www.youtube.com/watch?v=0nlUIbQrf5k
 
-
+###Usage summary
 AndroidTabs allow you to create your own custom tabbed panel
 with an animated tab indicator in a easy way.
 Just create your tabs that must inherit from AndroidTabsBase
@@ -20,5 +22,3 @@ for n in range(1,6):
     tab.add_widget(Button(text='Button %s' % n))
     android_tabs.add_widget(tab)
 ```
-#
-Video preview @ https://www.youtube.com/watch?v=0nlUIbQrf5k
