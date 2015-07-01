@@ -496,7 +496,7 @@ if __name__ == '__main__':
 
         pass
 
-    class MainApp(App):
+    class Example(App):
 
         def build(self):
 
@@ -509,4 +509,4 @@ if __name__ == '__main__':
 
             return android_tabs
 
-    MainApp().run()
+    Example().run()
