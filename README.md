@@ -14,7 +14,7 @@ To understand how it works just look at the structure in the Kivy language:
 <AndroidTabs>:
     AndroidTabsMain:
         AndroidTabsCarousel:
-            MyTab:              # Tabs must inherit from AndroidTabsBase
+            MyTab:                  # Tabs must inherit from AndroidTabsBase
                 text: 'tab 1'
             MyTab:
                 text: 'tab 2'
@@ -23,7 +23,7 @@ To understand how it works just look at the structure in the Kivy language:
         AndroidTabsScrollView:
             Gridlayout:
                 AndroidTabsLabel:   # Automatically added when you add a Tab to AndroidTabs
-                AndroidTabsLabel:
+                AndroidTabsLabel:   # so you don't need add them manually
                 
 ```
 As you can see it contains two widgets, AndroidTabsMain that containing the Carousel, and AndroidTabsBar that contains the Scrollview.  
@@ -55,4 +55,48 @@ class Example(App):
 
 Example().run()
 ```
-#Customization
+##Customization
+With kivy language, or directly in Python you can customize you can customize each widget.
+Below all the properties of AndroidTabs.
+######AndroidTabs properties
+```
+   default_tab = NumericProperty(0)
+    '''
+    Index of the default tab. Default to 0.
+    '''
+
+    tab_bar_height = NumericProperty('48dp')
+    '''
+    Height of the tab bar.
+    '''
+
+    tab_indicator_anim = BooleanProperty(True)
+    '''
+    Tab indicator animation. Default to True.
+    If you do not want animation set it to False.
+    '''
+
+    tab_indicator_height = NumericProperty('2dp')
+    '''
+    Height of the tab indicator.
+    '''
+
+    tab_indicator_color = VariableListProperty([1])
+    '''
+    Color of the tab indicator.
+    '''
+
+    anim_duration = NumericProperty(0.2)
+    '''
+    Duration of the slide animation. Default to 0.2.
+    '''
+
+    anim_threshold = BoundedNumericProperty(
+        0.8, min=0.0, max=1.0,
+        errorhandler=lambda x: 0.0 if x < 0.0 else 1.0)
+    '''
+    Animation threshold allow you to change
+    the tab indicator animation effect.
+    Default to 0.8.
+    '''
+```
