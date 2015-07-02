@@ -56,11 +56,16 @@ class Example(App):
 Example().run()
 ```
 ##Customization
-With kivy language, or directly in Python you can customize you can customize each widget.
+With kivy language, or directly in Python you can customize each widget.
 Below all the properties of AndroidTabs.
-######AndroidTabs properties
 ```
-   default_tab = NumericProperty(0)
+class AndroidTabs(AnchorLayout):
+    '''
+    The AndroidTabs class.
+    You can use it to create your own custom tabbed panel.
+    '''
+
+    default_tab = NumericProperty(0)
     '''
     Index of the default tab. Default to 0.
     '''
