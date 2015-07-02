@@ -58,50 +58,18 @@ Example().run()
 ##Customization
 With kivy language, or directly in Python you can customize each widget.
 Below all the properties of AndroidTabs.
-```
-class AndroidTabs(AnchorLayout):
-    '''
-    The AndroidTabs class.
-    You can use it to create your own custom tabbed panel.
-    '''
 
-    default_tab = NumericProperty(0)
-    '''
-    Index of the default tab. Default to 0.
-    '''
+- *default_tab* - Index of the default tab. NumericProperty default 0
 
-    tab_bar_height = NumericProperty('48dp')
-    '''
-    Height of the tab bar.
-    '''
+- *tab_bar_height* - Height of the tab bar. NumericProperty default 48dp
 
-    tab_indicator_anim = BooleanProperty(True)
-    '''
-    Tab indicator animation. Default to True.
-    If you do not want animation set it to False.
-    '''
+- *tab_indicator_anim* - Tab indicator animation. BooleanProperty default True
 
-    tab_indicator_height = NumericProperty('2dp')
-    '''
-    Height of the tab indicator.
-    '''
+- *tab_indicator_height* - Height of the tab indicator. NumeriProperty default 2dp
 
-    tab_indicator_color = VariableListProperty([1])
-    '''
-    Color of the tab indicator.
-    '''
+- *tab_indicator_color* - Rgba color of the tab indicator. VariableListProperty default (1,1,1,1)
 
-    anim_duration = NumericProperty(0.2)
-    '''
-    Duration of the slide animation. Default to 0.2.
-    '''
+- *anim_duration* - Duration of the slide animation. NumericProperty default  0.2
 
-    anim_threshold = BoundedNumericProperty(
-        0.8, min=0.0, max=1.0,
-        errorhandler=lambda x: 0.0 if x < 0.0 else 1.0)
-    '''
-    Animation threshold allow you to change
-    the tab indicator animation effect.
-    Default to 0.8.
-    '''
-```
+- *anim_threshold* - Directly affects indicator animation effect. From 0.0 to 1.0 BoundedNumeriProperty default to 0.8
+
