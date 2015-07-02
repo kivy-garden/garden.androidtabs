@@ -8,6 +8,27 @@ with an animated tab indicator in a easy way.
 Just create your tabs that must inherit from AndroidTabsBase
 and add them to an AndroidTabs instance.
 
+##How it works
+To understand how it works just look at the structure in the Kivy language:
+```
+<AndroidTabs>:
+    AndroidTabsMain:
+        AndroidTabsCarousel:
+            MyTab:              # Tabs must inherit from AndroidTabsBase
+                text: 'tab 1'
+            MyTab:
+                text: 'tab 2'
+
+    AndroidTabsBar:
+        AndroidTabsScrollView:
+            Gridlayout:
+                AndroidTabsLabel:   # Automatically added when you add a Tab to AndroidTabs
+                AndroidTabsLabel:
+                
+```
+As you can see it contains two widgets, AndroidTabsMain that containing the Carousel, and AndroidTabsBar that contains the Scrollview.  
+Each time you add a Tab to AndroidTabs, it adds the Tab to the carousel and creates and adds an AndroidTabsLabel instance to the GridLayout of the Scrollview.  
+
 ##Example
 ```
 from kivy.app import App
@@ -34,3 +55,4 @@ class Example(App):
 
 Example().run()
 ```
+#Customization
