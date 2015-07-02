@@ -59,24 +59,17 @@ Example().run()
 With kivy language, or directly in Python you can customize each widget.
 Below the main properties that allow you to customize AndoriTabs.
 
-##AndroidTabs properties
+###AndroidTabs properties
 - *default_tab* - Index of the default tab. NumericProperty(0)
-
 - *tab_bar_height* - Height of the tab bar. NumericProperty('48dp')
-
 - *tab_indicator_anim* - Tab indicator animation. BooleanProperty(True)
-
 - *tab_indicator_height* - Height of the tab indicator. NumeriProperty('2dp')
-
 - *tab_indicator_color* - Rgba color of the tab indicator. VariableListProperty([1,1,1,1])
-
 - *anim_duration* - Duration of the slide animation. NumericProperty(0.2)
-
 - *anim_threshold* - Accepts 0.0 to 1.0 and directly affects indicator animation effect. BoundedNumeriProperty(0.8)
 
-#AndroidTabsLabel properties
+###AndroidTabsLabel properties
 - *text_color_normal* - Text color of the label when it is not selected. VariableListProperty([1, 1, 1, .6])
-
 - *text_color_active* -  Text color of the label when it is selected. VariableListProperty([1])
 
 
