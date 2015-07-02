@@ -143,15 +143,20 @@ class AndroidTabsScrollView(ScrollView):
     '''
     AndroidTabsScrollView hacked version to fix scroll_x manual setting.
     '''
-    def update_effect(self, e, x):
-        if e:
-            e.value = (e.max + e.min) * x
+    def goto(self, scroll_x, scroll_y):
+        ''' Update event value along with scroll_*
+        '''
+        def _update(e, x):
+            if e:
+                e.value = (e.max + e.min) * x
 
-    def on_scroll_x(self, scrollview, x):
-            self.update_effect(self.effect_x, x)
+        if not (scroll_x is None):
+            self.scroll_x = scroll_x
+            _update(self.effect_x, scroll_x)
 
-    def on_scroll_y(self, scrollview, y):
-            self.update_effect(self.effect_y, y)
+        if not (scroll_y is None):
+            self.scroll_y = scroll_y
+            _update(self.effect_y, scroll_y)
 
 
 class AndroidTabsBar(BoxLayout):
@@ -226,28 +231,32 @@ class AndroidTabsBar(BoxLayout):
 
     def tab_bar_autoscroll(self, target, step):
         # automatic scroll animation of the tab bar.
-        t = target
-        bound_left = self.width / 2
+        bound_left = self.center_x
         bound_right = self.layout.width - bound_left
-        dt = t.center_x - (self.width / 2)
+        dt = target.center_x - bound_left
         sx, sy = self.scrollview.convert_distance_to_scroll(dt, 0)
 
         # last scroll x of the tab bar
         lsx = self.last_scroll_x
 
-        # distance to run
-        dst = abs(lsx - sx)
-
         # determine scroll direction
         scroll_is_late = lsx < sx
 
-        if scroll_is_late and t.center_x > bound_left:
-            x = lsx + (dst * step)
-            self.scrollview.scroll_x = boundary(x, 0.0, 1.0)
+        # distance to run
+        dst = abs(lsx - sx) * step
 
-        elif not scroll_is_late and t.center_x < bound_right:
-            x = lsx - (dst * step)
-            self.scrollview.scroll_x = boundary(x, 0.0, 1.0)
+        if not dst:
+            return
+
+        if scroll_is_late and target.center_x > bound_left:
+            x = lsx + dst
+
+        elif not scroll_is_late and target.center_x < bound_right:
+            x = lsx - dst
+        
+        x = boundary(x, 0.0, 1.0)
+        self.scrollview.goto(x, None)
+
 
     def android_animation(self, carousel, offset):
         # try to reproduce the android animation effect.
