@@ -56,7 +56,7 @@ class Example(App):
 Example().run()
 ```
 ##Customization
-With kivy language, or directly in Python you can customize each widget like below:
+With kivy language you can customize each widget like below:
 ```
 <AndroidTabs>:
     tab_indicator_height: '64dp'
