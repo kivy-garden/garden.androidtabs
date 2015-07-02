@@ -56,8 +56,12 @@ class Example(App):
 Example().run()
 ```
 ##Customization
-With kivy language, or directly in Python you can customize each widget.
-Below the main properties that allow you to customize AndoriTabs.
+With kivy language, or directly in Python you can customize each widget like below:
+```
+<AndroidTabs>:
+    tab_indicator_height: '64dp'
+    anim_threshold: 0
+```
 
 ###AndroidTabs properties
 - *default_tab* - Index of the default tab. NumericProperty(0)
