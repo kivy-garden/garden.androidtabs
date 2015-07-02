@@ -269,6 +269,7 @@ class AndroidTabsBar(BoxLayout):
             breakpoint = carousel.width - (carousel.width * threshold)
             traveled = distance / breakpoint
             break_step = 1.0 - traveled
+            indicator_animation = self.parent.tab_indicator_anim
 
             skip_slide = carousel.slides[carousel._skip_slide] \
                             if carousel._skip_slide is not None else None
@@ -283,6 +284,9 @@ class AndroidTabsBar(BoxLayout):
             b = self.target.tab_label
 
             self.tab_bar_autoscroll(b, step)
+
+            if not indicator_animation:
+                return
 
             if step <= threshold:
 
