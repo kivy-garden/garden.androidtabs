@@ -267,7 +267,7 @@ class AndroidTabsBar(BoxLayout):
             distance = abs(offset - carousel.width)
             threshold = self.parent.anim_threshold
             breakpoint = carousel.width - (carousel.width * threshold)
-            traveled = distance / breakpoint
+            traveled = distance / breakpoint if breakpoint else 0
             break_step = 1.0 - traveled
             indicator_animation = self.parent.tab_indicator_anim
 
@@ -310,8 +310,9 @@ class AndroidTabsBar(BoxLayout):
                     w_step = ind_width - (gap_w * break_step)
 
                 else:
-                    x_step = a.x - abs((a.x - b.x)) * step
-                    ind_width = (a.x + a.width) - x_step
+                    x_step = a.x - abs((a.x - b.x)) * threshold
+                    x_step = x_step - abs(x_step - b.x) * break_step
+                    ind_width = (a.x + a.width) - x_step if threshold else a.width
                     gap_w = ind_width - b.width
                     w_step = ind_width - (gap_w * break_step)
                     w_step = w_step if w_step + x_step <= a.x + a.width \
