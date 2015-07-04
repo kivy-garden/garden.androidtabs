@@ -79,4 +79,5 @@ With kivy language you can customize each widget like below:
 - *text_color_normal* - Text color of the label when it is not selected. VariableListProperty([1, 1, 1, .6])
 - *text_color_active* -  Text color of the label when it is selected. VariableListProperty([1])
 
-
+##Bugs and requests
+If you have found a bug or if you have a request for additional functionality, or if you have an idea to improve the code, please use the issue tracker on GitHub @ https://github.com/kivy-garden/garden.androidtabs/issues
