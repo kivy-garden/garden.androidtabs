@@ -59,7 +59,7 @@ Example().run()
 With kivy language you can customize each widget like below:
 ```
 <AndroidTabs>:
-    tab_indicator_height: '64dp'
+    tab_indicator_height: '2dp'
     anim_threshold: 0
 
 <AndroidTabsLabel>:
