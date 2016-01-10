@@ -2,6 +2,10 @@
 Kivy widget that try to reproduce Android tabs behaviour.  
 Video preview @ https://www.youtube.com/watch?v=0nlUIbQrf5k
 
+#####Applications that uses this widget
+
+- Contatore sigarette e tabacco https://play.google.com/store/apps/details?id=org.contatoresigarette.contatoresigarette&hl=it
+
 ##Usage summary
 AndroidTabs allow you to create your own custom tabbed panel
 with an animated tab indicator in a easy way.
